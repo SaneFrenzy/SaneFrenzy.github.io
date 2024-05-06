@@ -1,0 +1,119 @@
+.search-container {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-80%);
+    z-index: 100;
+}
+
+#form1 {
+    display: inline-block;
+}
+
+.searchbar {
+    width: 200px;
+    color: rgba(22, 132, 169, 1);
+    font-size: 16px;
+    float: none;
+    border: none;
+    font-style: italic;
+    text-indent: 2px;
+    background-color: rgba(240, 240, 244, 1);
+    cursor: text;
+    overflow-x: auto;
+    height: 30px;
+    box-shadow: 1px 1px 5px 5px rgba(194, 204, 208, 0.59);
+}
+
+.search-button {
+    background-color: #2F7CC1; /* 蓝色背景 */
+    color: white; /* 白色字体 */
+    width: 60px;
+    height:30px;
+    text-indent: 1px;
+    float: none;
+    border: none;
+    overflow-x: auto;
+    box-shadow: 1px 1px 5px 5px rgba(194, 204, 208, 0.59);
+    font-size: 14px
+    /* 其他样式 */
+}
+.search-button3 {
+    background-color: #2F7CC1; /* 蓝色背景 */
+    color: white; /* 白色字体 */
+    width: 112px;
+    height:30px;
+    text-indent: 1px;
+    float: none;
+    border: none;
+    overflow-x: auto;
+    box-shadow: 1px 1px 5px 5px rgba(194, 204, 208, 0.59);
+    font-size: 14px
+    /* 其他样式 */
+}
+
+.weather-box {
+    float: left; /* 左浮动 */
+    width: 500px; /* 或者你想要的宽度 */
+    height:200px;
+    padding: 10px; /* 可以根据需要进行调整 */
+    background-color: #2F7CC1; /* 背景色 */
+    border: 1px solid #ccc; /* 边框 */
+}
+
+ #floatingText {
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     width: 200px;
+     border: 3px solid #2F7CC1;
+     padding: 10px;
+     background-color: lightblue;
+     z-index: 999;
+ }
+
+.btn{
+    position:fixed;
+    z-index: 100;
+    top:30px;
+    right:50px;
+}
+
+#labelText{
+    color: rgb(77,165,209);
+    font-size: 10pt;
+    font-weight: bold;
+    line-height:10px;
+}
+
+#pointName {
+    position: fixed; /* 使用固定定位 */
+    top: 100px; /* 距离页面顶部 10px */
+    left: 100px; /* 距离页面左侧 10px */
+    width: 300px; /* 设置框的宽度 */
+    background-color: #fff; /* 背景颜色为白色 */
+    border: 1px solid #ccc; /* 边框为灰色实线 */
+    padding: 10px; /* 内边距为 10px */
+    border-radius: 5px; /* 圆角为 5px */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    z-index: 999;
+    display: none;
+    overflow-y: auto; /* 只在垂直方向出现滚动条 */
+    max-height: 600px; /* 设置最大高度为 200px */
+}
+
+
+.pointName:hover {
+    background-color: #e0e0e0; /* 鼠标悬停时背景色变为淡灰色 */
+}
+
+.pointName.selected {
+    background-color: #ffcc00; /* 选中状态下背景色为黄色 */
+    color: #fff; /* 字体颜色为白色 */
+}
+
+.selected {
+    fill: red; /* 填充颜色为红色 */
+    stroke: black; /* 边框颜色为黑色 */
+    stroke-width: 2; /* 边框宽度为2个像素 */
+}
