@@ -1,128 +1,153 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-        body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
-        #allmap{height:750px;width:100%;}
-        #r-result{width:100%; font-size:14px;}
-    </style>
+    <title>Earthquakes heatmap</title>
+    <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="js/ol.css" type="text/css">
+    <link rel="stylesheet" href="https://lib.baomitu.com/ol3/4.6.5/ol.css">
     <script src="https://lib.baomitu.com/ol3/4.6.5/ol.js"></script>
     <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=DLWm40m6Ko1nVJ9Es3qQRwn8zorGK0si"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
-    <title>Title</title>
+    <link rel="stylesheet" href="teststyle.css">
+
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode:'c37825bd281e3d960bbdada555c86394',
+        }
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=44ffcba6aed5ef531d05633efd6f2e38"></script>
+   
+
 </head>
 <body>
-<div id="allmap"></div>
+<div class="container-fluid">
 
-<script type="text/javascript">
-    // 百度地图API功能
-    //地图显示
-    var map = new BMap.Map("allmap");
-    var point = new BMap.Point(116.418261, 39.921984);
-    map.centerAndZoom(point,15);
+    <div class="row-fluid">
+        <div class="span12">
+            <div id="map" class="map"></div>
+        </div>
+        <div class="span4">
+            <form>
+                <label>radius size</label>
+                <input id="radius" type="range" min="1" max="50" step="1" value="5"/>
+                <label>blur size</label>
+                <input id="blur" type="range" min="1" max="50" step="1" value="15"/>
+            </form>
+        </div>
+    </div>
 
-    var points =[
-        {"lng":116.418261,"lat":39.921984,"count":50},
-        {"lng":116.423332,"lat":39.916532,"count":51},
-        {"lng":116.419787,"lat":39.930658,"count":15},
-        {"lng":116.418455,"lat":39.920921,"count":40},
-        {"lng":116.418843,"lat":39.915516,"count":100},
-        {"lng":116.42546,"lat":39.918503,"count":6},
-        {"lng":116.423289,"lat":39.919989,"count":18},
-        {"lng":116.418162,"lat":39.915051,"count":80},
-        {"lng":116.422039,"lat":39.91782,"count":11},
-        {"lng":116.41387,"lat":39.917253,"count":7},
-        {"lng":116.41773,"lat":39.919426,"count":42},
-        {"lng":116.421107,"lat":39.916445,"count":4},
-        {"lng":116.417521,"lat":39.917943,"count":27},
-        {"lng":116.419812,"lat":39.920836,"count":23},
-        {"lng":116.420682,"lat":39.91463,"count":60},
-        {"lng":116.415424,"lat":39.924675,"count":8},
-        {"lng":116.419242,"lat":39.914509,"count":15},
-        {"lng":116.422766,"lat":39.921408,"count":25},
-        {"lng":116.421674,"lat":39.924396,"count":21},
-        {"lng":116.427268,"lat":39.92267,"count":1},
-        {"lng":116.417721,"lat":39.920034,"count":51},
-        {"lng":116.412456,"lat":39.92667,"count":7},
-        {"lng":116.420432,"lat":39.919114,"count":11},
-        {"lng":116.425013,"lat":39.921611,"count":35},
-        {"lng":116.418733,"lat":39.931037,"count":22},
-        {"lng":116.419336,"lat":39.931134,"count":4},
-        {"lng":116.413557,"lat":39.923254,"count":5},
-        {"lng":116.418367,"lat":39.92943,"count":3},
-        {"lng":116.424312,"lat":39.919621,"count":100},
-        {"lng":116.423874,"lat":39.919447,"count":87},
-        {"lng":116.424225,"lat":39.923091,"count":32},
-        {"lng":116.417801,"lat":39.921854,"count":44},
-        {"lng":116.417129,"lat":39.928227,"count":21},
-        {"lng":116.426426,"lat":39.922286,"count":80},
-        {"lng":116.421597,"lat":39.91948,"count":32},
-        {"lng":116.423895,"lat":39.920787,"count":26},
-        {"lng":116.423563,"lat":39.921197,"count":17},
-        {"lng":116.417982,"lat":39.922547,"count":17},
-        {"lng":116.426126,"lat":39.921938,"count":25},
-        {"lng":116.42326,"lat":39.915782,"count":100},
-        {"lng":116.419239,"lat":39.916759,"count":39},
-        {"lng":116.417185,"lat":39.929123,"count":11},
-        {"lng":116.417237,"lat":39.927518,"count":9},
-        {"lng":116.417784,"lat":39.915754,"count":47},
-        {"lng":116.420193,"lat":39.917061,"count":52},
-        {"lng":116.422735,"lat":39.915619,"count":100},
-        {"lng":116.418495,"lat":39.915958,"count":46},
-        {"lng":116.416292,"lat":39.931166,"count":9},
-        {"lng":116.419916,"lat":39.924055,"count":8},
-        {"lng":116.42189,"lat":39.921308,"count":11},
-        {"lng":116.413765,"lat":39.929376,"count":3},
-        {"lng":116.418232,"lat":39.920348,"count":50},
-        {"lng":116.417554,"lat":39.930511,"count":15},
-        {"lng":116.418568,"lat":39.918161,"count":23},
-        {"lng":116.413461,"lat":39.926306,"count":3},
-        {"lng":116.42232,"lat":39.92161,"count":13},
-        {"lng":116.4174,"lat":39.928616,"count":6},
-        {"lng":116.424679,"lat":39.915499,"count":21},
-        {"lng":116.42171,"lat":39.915738,"count":29},
-        {"lng":116.417836,"lat":39.916998,"count":99},
-        {"lng":116.420755,"lat":39.928001,"count":10},
-        {"lng":116.414077,"lat":39.930655,"count":14},
-        {"lng":116.426092,"lat":39.922995,"count":16},
-        {"lng":116.41535,"lat":39.931054,"count":15},
-        {"lng":116.413022,"lat":39.921895,"count":13},
-        {"lng":116.415551,"lat":39.913373,"count":17},
-        {"lng":116.421191,"lat":39.926572,"count":1},
-        {"lng":116.419612,"lat":39.917119,"count":9},
-        {"lng":116.418237,"lat":39.921337,"count":54},
-        {"lng":116.423776,"lat":39.921919,"count":26},
-        {"lng":116.417694,"lat":39.92536,"count":17},
-        {"lng":116.415377,"lat":39.914137,"count":19},
-        {"lng":116.417434,"lat":39.914394,"count":43},
-        {"lng":116.42588,"lat":39.922622,"count":27},
-        {"lng":116.418345,"lat":39.919467,"count":8},
-        {"lng":116.426883,"lat":39.917171,"count":3},
-        {"lng":116.423877,"lat":39.916659,"count":34},
-        {"lng":116.415712,"lat":39.915613,"count":14},
-        {"lng":116.419869,"lat":39.931416,"count":12},
-        {"lng":116.416956,"lat":39.925377,"count":11},
-        {"lng":116.42066,"lat":39.925017,"count":38},
-        {"lng":116.416244,"lat":39.920215,"count":91},
-        {"lng":116.41929,"lat":39.915908,"count":54},
-        {"lng":116.422116,"lat":39.919658,"count":21},
-        {"lng":116.4183,"lat":39.925015,"count":15},
-        {"lng":116.421969,"lat":39.913527,"count":3},
-        {"lng":116.422936,"lat":39.921854,"count":24},
-        {"lng":116.41905,"lat":39.929217,"count":12},
-        {"lng":116.424579,"lat":39.914987,"count":57},
-        {"lng":116.42076,"lat":39.915251,"count":70},
-        {"lng":116.425867,"lat":39.918989,"count":8}];
+</div>
 
-    heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":20});
+<script>
 
-    map.addOverlay(heatmapOverlay);
-    heatmapOverlay.setDataSet({data:points,max:100});
-    heatmapOverlay.show();
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var data = {
+        "周黑鸭(武汉洪山区东澜岸广场店)": {"type":"Point","coordinates":[114.257904,30.435078]},
+        "蓉城老麻(洪山区总店)": {"type":"Point","coordinates":[114.25958,30.435429]},
+        "吴老三(武汉洪山区)": {"type":"Point","coordinates":[114.332344,30.486164]},
+        "武汉市洪山区潇湘城副食店": {"type":"Point","coordinates":[114.26129,30.433481]},
+        "芝士焗饭(武汉洪山区)": {"type":"Point","coordinates":[114.34552,30.477995]},
+        "幸福菜肴(武汉洪山区)": {"type":"Point","coordinates":[114.378624,30.442793]},
+        "武汉市洪山区新春来酒家": {"type":"Point","coordinates":[114.2448,30.46085]},
+        "周黑鸭(武汉洪山区白沙五路湘龙鑫城店)": {"type":"Point","coordinates":[114.261986,30.48028]},
+        "武汉洪山区满香庭川菜馆": {"type":"Point","coordinates":[114.27121,30.479614]},
+        "周黑鸭(武汉洪山区未来城店)": {"type":"Point","coordinates":[114.27213,30.482204]},
+        "九多肉多(武汉市洪山区南国都市店)": {"type":"Point","coordinates":[114.27725,30.482265]},
+        "周黑鸭(武汉市洪山区万科金色城市店)": {"type":"Point","coordinates":[114.25551,30.486017]},
+        "武汉市洪山区法芙纳烘焙坊": {"type":"Point","coordinates":[114.282364,30.48332]},
+        "周黑鸭(武汉洪山区武昌工学院店)": {"type":"Point","coordinates":[114.27568,30.48998]},
+        "周黑鸭(武汉洪山区彩虹郡店)": {"type":"Point","coordinates":[114.290306,30.459227]},
+        "周黑鸭(武汉市洪山区白沙洲东原启城店)": {"type":"Point","coordinates":[114.28601,30.470375]},
+        "周黑鸭(武汉洪山区清江锦城店)": {"type":"Point","coordinates":[114.29054,30.477179]},
+        "小四川平价名厨(武汉洪山区)": {"type":"Point","coordinates":[114.30458,30.472633]},
+        "周黑鸭(武汉洪山区板桥新村特店)": {"type":"Point","coordinates":[114.3047,30.472185]},
+        "周黑鸭(武汉洪山区波光霞影店)": {"type":"Point","coordinates":[114.287254,30.486238]},
+        "周黑鸭(武汉洪山区保利上城店)": {"type":"Point","coordinates":[114.28524,30.498442]}
+    };
+
+    var heatData7 = {
+        type: "FeatureCollection",
+        features: []
+    };
+
+    for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+            heatData7.features.push({
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                    type: "Point",
+                    coordinates: [data[key].coordinates[0], data[key].coordinates[1]] // Coordinates remain the same
+                }
+            });
+        }
+    }
+
+    console.log(heatData7);
+
+
+
+    function getTdtLayer(title, type, opacity) {
+        var url = 'http://t0.tianditu.com/DataServer?T=' + type + '&X={x}&Y={y}&L={z}&tk=23796fd920dd90cd47033db3f5862a7a';
+        var proj = ol.proj.get('EPSG:4326');
+        var layer = new ol.layer.Tile({
+            title: title,
+            source: new ol.source.XYZ({
+                url: url,
+                projection: proj
+            }),
+            opacity: opacity
+        });
+        return layer;
+    }
+
+    // 天地图矢量地图
+    var vec_c = getTdtLayer("天地图矢量图层", "vec_c", 1);
+    var cva_c = getTdtLayer("天地图矢量注记图层", "cva_c", 1);
+
+    var source = new ol.source.Vector({});
+    var vectorLayer = new ol.layer.Vector({
+        source: source
+    });
+
+    const map = new ol.Map({
+        target: "map",
+        layers: [vec_c, cva_c, vectorLayer], // Add vectorLayer here
+        view: new ol.View({
+            center: ol.proj.fromLonLat([114.389364766, 30.59664027]), // 使用 EPSG:3857
+            zoom: 15
+        })
+    });
+
+
+    var blur = document.getElementById('blur');
+    var radius = document.getElementById('radius');
+    blur.addEventListener('input', function() {
+        vector.setBlur(parseInt(blur.value, 5));
+    });
+
+    radius.addEventListener('input', function() {
+        vector.setRadius(parseInt(radius.value, 10));
+    });
+
+
+    //矢量图层 获取gejson数据
+    var vectorSource = new ol.source.Vector({
+        features: (new ol.format.GeoJSON()).readFeatures(heatData7,{
+            dataProjection : 'EPSG:4326',
+            featureProjection : 'EPSG:3857'
+        })
+    });
+    // Heatmap热力图
+    var vector = new ol.layer.Heatmap({
+        source: vectorSource,
+        blur: parseInt(blur.value, 10),
+        radius: parseInt(radius.value, 10),
+    });
+
+    map.addLayer(vector);
 </script>
+
 </body>
 </html>
