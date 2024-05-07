@@ -89,7 +89,7 @@
 
 
     function getTdtLayer(title, type, opacity) {
-        var url = 'http://t0.tianditu.com/DataServer?T=' + type + '&X={x}&Y={y}&L={z}&tk=23796fd920dd90cd47033db3f5862a7a';
+        var url = 'https://t0.tianditu.gov.cn/DataServer?T=' + type + '&X={x}&Y={y}&L={z}&tk=23796fd920dd90cd47033db3f5862a7a';
         var proj = ol.proj.get('EPSG:4326');
         var layer = new ol.layer.Tile({
             title: title,
