@@ -1,0 +1,281 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=line-stack&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQESA4BIABygZHq2D3sYLgEgVEGAcsYODGgDqaVEBfADREwwYFkggCqYhgBOEAOZKc8ggHIAhqQgBnDYJHpcq6ABMZRdOa1gtBANrXiNBsxYdAyGaBcjN6VjOVg3RlZAMbTAUYjARu9Ad1tABfjAecT_QLkaGMAoOUBcOUAPv0BpOVY4wHe5ZJcAXSMiJUVLQjlcADMKWA0AZgBSDRTYRSUACyaNABYOroAjYDAxAFtNds6XAGMYewhoABktUZwsAjB5AFccCvQxCXHSKzl6nDt9-XxaoL0tADccAEE9AEkprVUZAQuQHoYREUjvXR6S7EMAATxADw0CzsOCUwHksPmcnG-wsWgxAHEtNJYPUtFg9DgurZ7E5KAAmAAMAEYAOwAWkZHJZARc6AZLO5AA5OczeUFgky2ZyAJyi8VBAXS5mM-VdflSjnM5lqvmSwXs5n03USpUilkmxVS83Gnnq_XM80tS2pa2cwYu1xuxkAVk9GpZ5oAbP6HebuWL7WbOebI3ro4y5Xb426VaHo9r06nbXHTVKkzrk3mWUmcwrXSXOc6i1bK4yPTWK8yk37G166yG2wHm5yI-X2z3GbH-92kwWRw65Wmu5PDYXc7We0as4ymaKV2vVxvVYzqwuK5uG_v25vW8eA5vO-f9Zu-1GmZvh_fVzvx8-19PrwKP_OJ9_VcuM7fvOG6FmW76Fnuf4PoWR7QauhZnvB9KFleyGFneKYITGoGyrhn7oXO-HgVh9I5hutokcWZFVhR7p0b6DFoe-tqYdRtpPqRtpvlxho7l-D7GpmQGCYaVG1vSe4btW4kHtWUHvtWcGKZySEqYyIb0kKyHVhy9JBjpOEtIyhmJuy9KsoZab0j6Vk6vSMpWcaFkBOUIKBLCEL6NCJzwoiLzkochjuUQlKKDgUKwM4ciyEE0BaFMDwhB43h-Hw9pwgiVBYKsOATnoUziGAvS7AcVJ6jSDhRXq6DavSAB02r2rVQ71UGLTNbA2otI1nXakKjVBn1rVDn1LTMvVLJ9RZ9WsjK00-vVPrzTVXVGvVLQrRKLUyo1gzTRNDnTUG9VCkNq1GoMbXMtNV1CkKx1tR1F0tD1R0XTNU0vVdMo3R9PU-qy027S0PqdTKJ2Awds1Ax9A2svtH27V921dcZk1jQ1QqI6jzKvW1sO45tp1jRNoN9YMd30hT8MPRdgy03160adNPVCtTF3NrNW3bdqE1BnTuMOZNYPffVMrPUTP3nbjPoTSjvMtANct9T6AOS7zQby4T23QPsWBYBTu1aarrKnX9uOsg1OOa4tzIy7zQoTezfWshNgw8xKjpkxrXtCiDgu86ybO-0ETJXayDsSkyJ0s6tUr1YMFu8z6J3vZbA1O31_tLTr0eMoyIudUyu1BlHYeJtdxe-ktouoyhZuR31EuzaHcgoQ1ibV2bvrN4XHtBjKMq7rurtm0PLQ2QjlM29HzKLUKcsI0yrIu_HLKzXXvMytbzelxzuPY5NntBM2ztb_ni0C83DUtOX7dcrX9qlF0oIxXq8WJVQdChCwkSxIkEoEpMpJRytAPK9oCpFRKgoQ49pKpOE5mbQYQ0uooUTh1NBE0jRCDWmbNkuCVSLR9NTLB4tCH6TavNNBPUJaEI0htC-p9H69zQSdVkYM0G7TVhQtmnD-q9TWiDfaaCzb0hEdqRapCBH6Wmg1GU_D54bVIS3JuXDE4SPGuQtGtCHpo0WgjQhLQrrMk0VdFWL1sFAzQQ1UxRj5YSMGIXE2XUnH1RcSqRuEjxHi28dbPR2px7A3FgEloZtNqEMGD1FmrieqYLxpnAJgwzb8IZu41JUjrFGgXm3YgpiF7UPng1IM0jBhSKMQNHeRjdq_UISQ9xSSrqT0iYXJqrjFpJ1VlIiRQYCkUMLq9Ch4SsmPzKYQlUbVpF31mqg0x8tClaNTtNAabTLqJyycY9xUz-43VEUtaRTJ0kkMdEKO-hTkmtwlsZByyTVY_VSSdZpXU1azQCT6fukTkG7KKY1VJ2DSleOfq_LosU5CfyStQDIOR8gsCKEAoIIDsq5XyoVCYMC9hwIqnYKq0Vtq_UmpgmUd1UEymVtIje19YBD3NvQiaajh6zV2S3JZVKJpEtwTnZpq0iWnRUWbWZG9JL0LtiI6lQ96EmOoaS_ZtKNq4J5S7WAOd7adU5dQo-R0qWFxiS3IMIzinkpOkGCR60eFrWKSMu6gcvaVzmvQ5WhK3ryp7uSg1HLHmOsavEjeTKQa-smnnZhPUUGyr1bwgldTb4SOWhjLqrJnGFMjjDXBTJWl6JXqdQN7cyKZpTRc5sKagxppTUmoVsBxE9UMeW4m7Lq0DVkeWpOG1ME2TtsXNxDMU3vKWtQ8R-CREVuUSmrmtaE6dq6kKQuxq6m7SFBsxJrMvXjNoVknxJTxmlyyaY9xEjK5lwlbNXdhc7VdV3EOzmcTpETP3WgyVQg3LEGBLAcoAgADcQA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: "“一带一路”航贸指数"
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: [
+      "“一带一路”贸易额指数",
+      "“一带一路”集装箱海运量指数",
+      "“海上丝绸之路”运价指数",
+    ]
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ["2017-07-01",
+      "2017-08-01",
+      "2017-09-01",
+      "2017-10-01",
+      "2017-11-01",
+      "2017-12-01",
+      "2018-01-01",
+      "2018-02-01",
+      "2018-03-01",
+      "2018-04-01",
+      "2018-05-01",
+      "2018-06-01",
+      "2018-07-01",
+      "2018-08-01",
+      "2018-09-01",
+      "2018-10-01",
+      "2018-11-01",
+      "2018-12-01",
+      "2019-01-01",
+      "2019-02-01",
+      "2019-03-01",
+      "2019-04-01",
+      "2019-05-01",
+      "2019-06-01",
+      "2019-07-01",
+      "2019-08-01",
+      "2019-09-01",
+      "2019-10-01",
+      "2019-11-01",
+      "2019-12-01",
+      "2020-01-01",
+      "2020-02-01",
+      "2020-03-01",
+      "2020-04-01",
+      "2020-05-01",
+      "2020-06-01",
+      "2020-07-01",
+      "2020-08-01",
+      "2020-09-01",
+      "2020-10-01",
+      "2020-11-01",
+      "2020-12-01",
+      "2021-01-01",
+      "2021-02-01",
+      "2021-03-01",
+      "2021-04-01",
+      "2021-05-01",
+      "2021-06-01",
+      "2021-07-01",
+      "2021-08-01",
+      "2021-09-01",
+      "2021-10-01",
+      "2021-11-01",
+      "2021-12-01",
+      "2022-01-01",
+      "2022-02-01",
+      "2022-03-01",
+      "2022-04-01",
+      "2022-05-01",
+      "2022-06-01",
+      "2022-07-01",
+      "2022-08-01",
+      "2022-09-01",
+      "2022-10-01",
+      "2022-11-01",
+      "2022-12-01",
+      "2023-01-01",
+      "2023-02-01",
+      "2023-03-01",
+      "2023-04-01",
+      "2023-05-01",
+      "2023-06-28",
+      "2023-07-26",
+      "2023-08-30",
+      "2023-09-27",
+      "2023-10-25",
+      "2023-11-29",
+      "2023-12-27",]
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: "“一带一路”贸易额指数",
+      type: "line",
+      smooth: true,
+      data: [
+        112.11,
+        108.63,
+        113.1,
+        118.16,
+        108.08,
+        131.01,
+        127.79,
+        125.59,
+        112.39,
+        109.14,
+        121.29,
+        126.86,
+        124.61,
+        124.88,
+        126.63,
+        133.29,
+        127.01,
+        134.91,
+        123.57,
+        129.35,
+        96.57,
+        121.77,
+        128.74,
+        129.01,
+        130.0,
+        132.84,
+        133.67,
+        139.8,
+        131.35,
+        144.82,
+        148.78,
+        148.78,
+        112.06,
+        123.82,
+        119.79,
+        111.68,
+        129.05,
+        134.93,
+        134.96,
+        151.01,
+        138.51,
+        153.53,
+        161.07,
+        null,
+        149.28,
+        157.81,
+        172.4,
+        165.16,
+        181.82,
+        171.49,
+        181.33,
+        189.38,
+        173.83,
+        204.76,
+        206.06,
+        201.41,
+        156.29,
+        178.81,
+        189.57,
+        200.05,
+        209.66,
+        209.61,
+        205.55,
+        217.76,
+        193.73,
+        212.09,
+        207.05,
+        190.496990303,
+        177.9932574444,
+        215.8517420782,
+        201.75,
+        192.4,
+        199.62,
+        184.09,
+        191.85,
+        205.68,
+        192.36,
+        207.55,
+      ],
+    },
+    {
+      name: "“一带一路”集装箱海运量指数",
+      type: "line",
+      smooth: true,
+      data: [
+        117.46, 121.43, 121.12, 117.17, 105.52, 121.9, 126.69, 123.93, 106.35,
+        107.05, 126.75, 129.53, 123.85, 118.1, 119.34, 127.24, 115.2, 118.26,
+        122.95, 115.32, 93.76, 129.44, 131.9, 133.98, 135.74, 134.14, 134.51,
+        131.17, 122.14, 131.04, 140.28, 140.28, 107.74, 124.94, 122.48, 117.9,
+        129.98, 137.39, 143.06, 143.3, 138.88, 147.5, 148.25, 145.27, 125.83,
+        145.89, 152.62, 145.2, 138.92, 139.91, 152.28, 144.32, 140.11, 145.41,
+        155.24, 165.89, 120.33, 127.37, 107.45, 110.62, 136.76, 141.09, 131.56,
+        128.11, 124.47, 134.22, 130.41, 127.52, 120.2552188369, 147.7393302947,
+        154.95, 146.32, 153.78, 150.4, 147.41, 152.15, 141.12, 147.74,
+      ],
+    },
+    {
+      name: "“海上丝绸之路”运价指数",
+      type: "line",
+      smooth: true,
+      data: [
+        91.03, 94.86, 98.52, 101.68, 99.81, 101.76, 90.71, 93.56, 91.94, 89.32,
+        94.82, 97.6, 101.23, 105.14, 99.99, 104.19, 98.52, 101.3, 94.82, 89.16,
+        89.39, 84.29, 90.06, 93.67, 102.62, 106.64, 112.53, 112.67, 104.88,
+        109.79, 108.53, 93.2, 97.02, 102.62, 86.33, 93.13, 101.1, 99.31, 99.07,
+        103.46, 101.67, 123.03, 152.34, 159.0, 170.29, 176.77, 200.18, 207.87,
+        222.87, 247.19, 260.18, 276.23, 243.74, 239.94, 238.26, 241.33, 255.1,
+        240.48, 250.59, 247.14, 243.32, 219.94, 201.48, 180.64, 159.87, 138.88,
+        123.13, 113.97, 124.62, 119.67, 114.24, 109.66, 104.74, 100.79, 103.32,
+        113.32, 110.66, 124.19,]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
