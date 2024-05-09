@@ -73,12 +73,12 @@
             console.log('data1', data);
 
             // 创建点图层
-            var pointLayer = new mapvgl.PointLayer({
+          var pointLayer = new mapvgl.RippleLayer({
                 // blend: 'lighter',
-                data: data, // 使用加载的数据
-                size: 20 ,// 根据您的数据，这里可能需要调整
-                color: 'rgb(248, 177, 149, 0.8)' // 根据您的数据，这里可能需要调整
-
+                data: data, 
+                size: 50 ,
+                color: 'rgba(25, 25, 250, 1)' ,
+                duration:1
             });
 
             view.addLayer(pointLayer);
