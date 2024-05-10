@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>陆地丝绸之路</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map_container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+
+    <script src="//api.map.baidu.com/api?v=1.0&type=webgl&ak=DLWm40m6Ko1nVJ9Es3qQRwn8zorGK0si"></script>
+    <script src="https://mapv.baidu.com/gl/examples/static/common.js"></script>
+    <script src="//mapv.baidu.com/build/mapv.min.js"></script>
+    <script src="https://code.bdstatic.com/npm/mapvgl@1.0.0-beta.189/dist/mapvgl.min.js"></script>
+
+</head>
+<body>
+<div id="map_container"></div>
+<script>
+    var map = initMap({
+        tilt: 49.6,
+        heading: 0,
+        center: [70.,25],
+        zoom: 5,
+        style: whiteStyle,
+        skyColors: [
+            'rgba(226, 237, 248, 0)',
+            'rgba(186, 211, 252, 1)'
+        ]
+    });
+
+    var view = new mapvgl.View({
+        map: map
+    });
+    //
+    // var data=[{
+    //     geometry: {
+    //         type: 'LineString',
+    //         coordinates: [
+    //             [23.716500000000053,37.981420000000071],
+    //             [24.717280000000073,37.90674000000007]
+    //
+    //         ]
+    //     }
+    // }]
+    // var layer = new mapvgl.WallTripLayer({
+    //     trailLength: 3.0,
+    //     step: 0.1,
+    //     color: 'rgba(255, 0, 102, 0.5)',
+    //     height: 100000
+    // });
+
+    //  view.addLayer(layer);
+    //  layer.setData(data);
+
+
+    // 获取第一个 JSON 文件的数据
+
+            fetch('陆路.json')
+                .then(response => response.json())
+                .then(json => {
+                    var data5 = json.features.map(feature => {
+                        return {
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: feature.geometry.paths[5]//.reverse()
+                            }
+                        };
+                    });
+                    var data = json.features.map(feature => {
+                        return {
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: feature.geometry.paths[0].reverse()
+                            }
+                        };
+                    });
+                    var data1 = json.features.map(feature => {
+                        return {
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: feature.geometry.paths[1]//.reverse()
+                            }
+                        };
+                    });
+                    var data2 = json.features.map(feature => {
+                        return {
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: feature.geometry.paths[2].reverse()
+                            }
+                        };
+                    });
+                    var data3 = json.features.map(feature => {
+                        return {
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: feature.geometry.paths[3].reverse()
+                            }
+                        };
+                    });
+                    var data4 = json.features.map(feature => {
+                        return {
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: feature.geometry.paths[4].reverse()
+                            }
+                        };
+                    });
+                    var data6 = json.features.map(feature => {
+                        return {
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: feature.geometry.paths[6]//.reverse()
+                            }
+                        };
+                    });
+
+
+
+
+
+
+                    var layer1 = new mapvgl.WallLayer({
+                        gradient: {
+                            0: 'rgba(204, 153, 255, 0.8)',
+                            1: 'rgba(0, 0, 204, 0.5)'
+                        },
+                        height: 100000,
+                        data:data5,
+
+                    });
+
+                    var layer11 = new mapvgl.WallTripLayer({
+                        trailLength: 8000,
+                        step: 50,
+                        color: 'rgba(240, 134, 84, 0.5)',
+                        height: 100000,
+                        data:data5,
+                    });
+                    var layer2 = new mapvgl.WallLayer({
+                        gradient: {
+                            0: 'rgba(204, 153, 255, 0.8)',
+                            1: 'rgba(0, 0, 204, 0.5)'
+                        },
+                        height: 100000,
+                        data:data,
+
+                    });
+                    var layer22 = new mapvgl.WallTripLayer({
+                        trailLength: 8000,
+                        step: 30,
+                        color: 'rgba(240, 134, 84, 0.5)',
+                        height: 100000,
+                        data:data,
+                    });
+                    var layer3 = new mapvgl.WallLayer({
+                        gradient: {
+                            0: 'rgba(204, 153, 255, 0.8)',
+                            1: 'rgba(0, 0, 204, 0.5)'
+                        },
+                        height: 100000,
+                        data:data1,
+
+                    });
+                    var layer33 = new mapvgl.WallTripLayer({
+                        trailLength: 8000,
+                        step: 5,
+                        color: 'rgba(240, 134, 84, 0.5)',
+                        height: 100000,
+                        data:data1,
+                    });
+                    var layer4 = new mapvgl.WallLayer({
+                        gradient: {
+                            0: 'rgba(204, 153, 255, 0.8)',
+                            1: 'rgba(0, 0, 204, 0.5)'
+                        },
+                        height: 100000,
+                        data:data2,
+
+                    });
+                    var layer44 = new mapvgl.WallTripLayer({
+                        trailLength: 8000,
+                        step: 1,
+                        color: 'rgba(240, 134, 84, 0.5)',
+                        height: 100000,
+                        data:data2,
+                    });
+                    var layer5 = new mapvgl.WallLayer({
+                        gradient: {
+                            0: 'rgba(204, 153, 255, 0.8)',
+                            1: 'rgba(0, 0, 204, 0.5)'
+                        },
+                        height: 100000,
+                        data:data3,
+
+                    });
+                    var layer55 = new mapvgl.WallTripLayer({
+                        trailLength: 8000,
+                        step: 1,
+                        color: 'rgba(240, 134, 84, 0.5)',
+                        height: 100000,
+                        data:data3,
+                    });
+                    var layer6 = new mapvgl.WallLayer({
+                        gradient: {
+                            0: 'rgba(204, 153, 255, 0.8)',
+                            1: 'rgba(0, 0, 204, 0.5)'
+                        },
+                        height: 100000,
+                        data:data4,
+
+                    });
+                    var layer66 = new mapvgl.WallTripLayer({
+                        trailLength: 8000,
+                        step: 1,
+                        color: 'rgba(240, 134, 84, 0.5)',
+                        height: 100000,
+                        data:data4,
+                    });
+                    var layer7 = new mapvgl.WallLayer({
+                        gradient: {
+                            0: 'rgba(204, 153, 255, 0.8)',
+                            1: 'rgba(0, 0, 204, 0.5)'
+                        },
+                        height: 100000,
+                        data:data6,
+
+                    });
+                    var layer77 = new mapvgl.WallTripLayer({
+                        trailLength: 8000,
+                        step: 0.01,
+                        color: 'rgba(240, 134, 84, 0.5)',
+                        height: 100000,
+                        data:data6,
+                    });
+                    // 将图层添加到视图
+                    view.addLayer(layer1);
+                    view.addLayer(layer11);
+                    view.addLayer(layer2);
+                    view.addLayer(layer22);
+                    view.addLayer(layer3);
+                    view.addLayer(layer33);
+                    view.addLayer(layer4);
+                    view.addLayer(layer44);
+                    view.addLayer(layer5);
+                    view.addLayer(layer55);
+                    view.addLayer(layer6);
+                    view.addLayer(layer66);
+                    view.addLayer(layer7);
+                    view.addLayer(layer77);
+
+
+                })
+                .catch(error => {
+                    console.error('Error loading JSON:', error);
+                });
+
+
+</script>
+</body>
+</html>
