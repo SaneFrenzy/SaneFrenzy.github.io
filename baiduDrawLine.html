@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>MapVGL with Line Data</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map_container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+
+    <script src="//api.map.baidu.com/api?v=1.0&type=webgl&ak=DLWm40m6Ko1nVJ9Es3qQRwn8zorGK0si"></script>
+    <script src="https://mapv.baidu.com/gl/examples/static/common.js"></script>
+    <script src="//mapv.baidu.com/build/mapv.min.js"></script>
+    <script src="https://code.bdstatic.com/npm/mapvgl@1.0.0-beta.189/dist/mapvgl.min.js"></script>
+
+</head>
+<body>
+<div id="map_container"></div>
+<script>
+    var map = initMap({
+        tilt: 49.6,
+        heading: 0,
+        center: [23.716500000000053,37.981420000000071],
+        zoom: 8,
+        style: whiteStyle,
+        skyColors: [
+            'rgba(226, 237, 248, 0)',
+            'rgba(186, 211, 252, 1)'
+        ]
+    });
+
+    var view = new mapvgl.View({
+        map: map
+    });
+   //
+   // var data=[{
+   //     geometry: {
+   //         type: 'LineString',
+   //         coordinates: [
+   //             [23.716500000000053,37.981420000000071],
+   //             [24.717280000000073,37.90674000000007]
+   //
+   //         ]
+   //     }
+   // }]
+    var layer = new mapvgl.WallTripLayer({
+        trailLength: 3.0,
+        step: 0.1,
+        color: 'rgba(255, 0, 102, 0.5)',
+        height: 100000
+    });
+
+   //  view.addLayer(layer);
+   //  layer.setData(data);
+
+
+    // 获取第一个 JSON 文件的数据
+    fetch('海路部分.json')
+        .then(response => response.json())
+        .then(json1 => {
+            // 获取第二个 JSON 文件的数据
+            fetch('海路2.json')
+                .then(response => response.json())
+                .then(json2 => {
+                    // 合并数据并转换数据格式
+                    var data = json1.features.concat(json2.features).map(feature => {
+                        return {
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: feature.geometry.paths[0].reverse()
+                            }
+                        };
+                    });
+
+                    console.log('data1', data);
+
+                    // 创建第一个图层
+                    var layer = new mapvgl.WallLayer({
+                        gradient: {
+                            0: 'rgba(204, 153, 255, 0.8)',
+                            1: 'rgba(0, 0, 204, 0.5)'
+                        },
+                        height: 100000
+                    });
+
+                    // 创建第二个图层
+                    var layer2 = new mapvgl.WallTripLayer({
+                        trailLength: 8000,
+                        step: 50,
+                        color: 'rgba(255, 0, 102, 0.5)',
+                        height: 100000
+                    });
+
+                    // 将图层添加到视图
+                    view.addLayer(layer);
+                    view.addLayer(layer2);
+
+                    // 设置图层数据
+                    layer.setData(data);
+                    layer2.setData(data);
+                })
+                .catch(error => {
+                    console.error('Error loading JSON:', error);
+                });
+        });
+
+</script>
+</body>
+</html>
