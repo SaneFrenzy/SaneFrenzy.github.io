@@ -1,0 +1,117 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=line-stack
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/china.js"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: '近十年进出口金额(亿元)'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['进出口总额(人民币)(亿元)', '出口总额(人民币)(亿元)', '进口总额(人民币)(亿元)', '进出口差额(人民币)(亿元)', ]
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['2014年', '2015年', '2016年', '2017年', '2018年', '2019年', '2020年', '2021年', '2022年', '2023年']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: '进出口总额(人民币)',
+      type: 'line',
+     // stack: 'Total',
+      data: [264241.8,245502.9,243386.5,278099.2,305010.1,315627.3,322215.2,387414.6,418011.6,417568
+      ]
+    },
+    {
+      name: '出口总额(人民币)',
+      type: 'line',
+      //stack: 'Total',
+      data: [143883.8,141166.8,138419.3,153309.4,164128.8,172373.6,179278.8,214255.2,237411.5,237726
+      ]
+    },
+    {
+      name: '进口总额(人民币)',
+      type: 'line',
+     // stack: 'Total',
+      data: [120358,104336.1,104967.2,124789.8,140881.3,143253.7,142936.4,173159.4,180600.1,179842
+      ]
+    },
+    {
+      name: '进出口差额(人民币)',
+      type: 'line',
+      //stack: 'Total',
+      data: [23525.7,36830.7,33452.1,28519.6,23247.5,29119.9,36342.4,41095.9,56811.5,57883
+      ]
+    },
+    // {
+    //   name: 'Search Engine',
+    //   type: 'line',
+    //   stack: 'Total',
+    //   data: [820, 932, 901, 934, 1290, 1330, 1320]
+    // }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
