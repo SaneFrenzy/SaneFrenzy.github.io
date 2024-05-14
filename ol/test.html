@@ -255,7 +255,11 @@
         controls: ol.control.defaults.defaults().extend([
             new ol.control.FullScreen,
             new ol.control.ScaleLine,
-        ])
+        ]),
+        interactions: ol.interaction.defaults.defaults({
+            mouseWheelZoom: false, // 取消滚动鼠标中间的滑轮交互
+            shiftDragZoom: false, // 取消shift+wheel左键拖动交互
+        })
     });
     var countries_json = ['json_world/2014_countries.json','json_world/2015_countries.json','json_world/2017_countries.json','json_world/2018_countries.json']
     var country_layer = new ol.layer.Vector();
